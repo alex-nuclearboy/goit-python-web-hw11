@@ -4,8 +4,6 @@ from pydantic import BaseModel, Field
 
 
 class ContactBase(BaseModel):
-    name: str = Field(max_length=25)
-
     first_name: str = Field(max_length=50)
     last_name: str = Field(max_length=50)
     email: str = Field(max_length=50)
