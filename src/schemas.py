@@ -10,7 +10,6 @@ class ContactBase(BaseModel):
     phone_number: str = Field(max_length=15)
     birthday: date
     additional_info: Optional[str] = None
-    created_at: datetime
 
 
 class ContactModel(ContactBase):
