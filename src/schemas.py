@@ -13,3 +13,19 @@ class ContactBase(BaseModel):
     birthday: date
     additional_info: Optional[str] = None
     created_at: datetime
+
+
+class ContactModel(ContactBase):
+    pass
+
+
+class ContactUpdate(ContactBase):
+    pass
+
+
+class ContactResponse(ContactBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
