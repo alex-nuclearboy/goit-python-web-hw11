@@ -4,6 +4,19 @@ from pydantic import BaseModel, Field
 
 
 class ContactBase(BaseModel):
+    """
+    Base model for contact information,
+    used as a foundation for other contact-related models.
+
+    Attributes:
+        first_name (str): The first name of the contact.
+        last_name (str): The last name of the contact.
+        email (str): The email address of the contact.
+        phone_number (str): The contact's phone number.
+        birthday (date): The birthday of the contact.
+        additional_info (Optional[str]): Additional information about
+                                         the contact, optional.
+    """
     first_name: str = Field(max_length=50)
     last_name: str = Field(max_length=50)
     email: str = Field(max_length=50)
@@ -13,10 +26,21 @@ class ContactBase(BaseModel):
 
 
 class ContactModel(ContactBase):
+    """
+    A model representing a contact, extending ContactBase
+    without additional fields. This model is used for creating new contacts
+    where all fields are required.
+    """
     pass
 
 
 class ContactUpdate(BaseModel):
+    """
+    A model for updating existing contacts. All fields are optional.
+
+    Attributes are identical to ContactBase, but all are optional
+    to allow for partial updates.
+    """
     first_name: Optional[str] = Field(None, max_length=50)
     last_name: Optional[str] = Field(None, max_length=50)
     email: Optional[str] = Field(None, max_length=50)
@@ -26,13 +50,16 @@ class ContactUpdate(BaseModel):
 
 
 class ContactResponse(ContactBase):
+    """
+    A response model for contact information that extends ContactBase
+    with additional fields.
+
+    Attributes:
+        id (int): The unique identifier for the contact.
+        created_at (datetime): The date and time when the contact
+                               was created in the system.
+    """
     id: int
-    first_name: str
-    last_name: str
-    email: str
-    phone_number: str
-    birthday: date
-    additional_info: Optional[str] = None
     created_at: datetime
 
     class Config:
