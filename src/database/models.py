@@ -6,6 +6,22 @@ Base = declarative_base()
 
 
 class Contact(Base):
+    """
+    Represents a contact entry in the database.
+
+    Attributes:
+        id (Integer): The primary key for the contact
+                      that is automatically generated.
+        first_name (String): The contact's first name, a required field.
+        last_name (String): The contact's last name, a required field.
+        email (String): The contact's email address, must be unique.
+        phone_number (String): The contact's phone number, an optional field.
+        birthday (Date): The contact's date of birth, an optional field.
+        additional_info (Text): Additional information or notes about
+                                the contact, stored as text and is optional.
+        created_at (DateTime): The timestamp when the contact was created,
+                               defaults to the current time.
+    """
     __tablename__ = 'contacts'
 
     id = Column(Integer, primary_key=True, index=True)
