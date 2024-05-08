@@ -71,3 +71,30 @@ This command will start the API server accessible at [http://localhost:8000](htt
 ## API Documentation
 
 Once the server is running, you can access the Swagger UI to test the API endpoints at [http://localhost:8000/docs](http://localhost:8000/docs).
+
+## Stopping the Application and Exiting
+
+When you are finished using the application, follow these steps to properly shut down the server and exit the development environment:
+
+- **Stopping the Application:**
+
+To stop the FastAPI application, you simply need to press `CTRL+C` in the terminal window where the server is running. This will terminate the server process.
+
+- **Shutting Down the PostgreSQL Server:**
+
+If you've started the PostgreSQL server using Docker Compose and wish to stop it, you can use the following command:
+```bash
+docker compose down
+```
+
+This command stops the running containers and removes the containers created by docker compose up, along with their networks. It’s a clean way to ensure that no unnecessary Docker processes remain running. If you wish to stop the container but not remove it, you can use:
+```bash
+docker compose stop
+```
+
+- **Exiting the Poetry Environment**
+```bash
+exit
+```
+
+This command will deactivate the virtual environment and return you to your system's default environment.
