@@ -9,4 +9,8 @@ app.include_router(contacts.router, prefix='/api')
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello World"}
+    return {
+        "message": "Contact Management API is up and running!",
+        "next_steps": "Please visit the /docs endpoint for detailed API "
+        "documentation and interactive exploration of endpoints."
+    }
