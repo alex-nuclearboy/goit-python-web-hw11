@@ -56,11 +56,14 @@ class ContactResponse(ContactBase):
 
     Attributes:
         id (int): The unique identifier for the contact.
-        created_at (datetime): The date and time when the contact
-                               was created in the system.
+        created_at (datetime): The date and time when the contact was
+                               originally created in the system.
+        updated_at (datetime): The date and time when the contact information
+                               was last updated.
     """
     id: int
     created_at: datetime
+    updated_at: datetime
 
     class Config:
         orm_mode = True

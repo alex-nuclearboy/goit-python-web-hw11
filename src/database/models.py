@@ -7,7 +7,8 @@ Base = declarative_base()
 
 class Contact(Base):
     """
-    Represents a contact entry in the database.
+    Represents a contact entry in the database,
+    storing personal and contact information.
 
     Attributes:
         id (Integer): The primary key for the contact
@@ -21,6 +22,9 @@ class Contact(Base):
                                 the contact, stored as text and is optional.
         created_at (DateTime): The timestamp when the contact was created,
                                defaults to the current time.
+        updated_at (DateTime): The timestamp when the contact was last updated.
+                               It updates automatically on modification
+                               of the contact.
     """
     __tablename__ = 'contacts'
 
@@ -32,3 +36,6 @@ class Contact(Base):
     birthday = Column(Date)
     additional_info = Column(Text)
     created_at = Column('created_at', DateTime, default=func.now())
+    updated_at = Column(
+        'updated_at', DateTime, default=func.now(), onupdate=func.now()
+    )
