@@ -43,7 +43,7 @@ git clone https://github.com/alex-nuclearboy/goit-python-web-hw11.git
 cd goit-python-web-hw11
 ```
 
-- **Activate the P--reload oetry Environment and Install Dependencies:**
+- **Activate the Poetry Environment and Install Dependencies:**
 ```bash
 poetry shell
 poetry install --no-root
